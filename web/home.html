@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>North Star Communications — find your way to value</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 32px 96px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { text-align: center; padding: 56px 0 72px; }
+
+    .logo-mark {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 40px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex; align-items: center; justify-content: center;
+      color: #475569;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid #cbd5e1;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .hero .subhead {
+      font-size: clamp(17px, 1.6vw, 20px);
+      color: #475569;
+      max-width: 620px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .hero-visual {
+      margin: 56px auto 0;
+      height: 260px;
+      max-width: 720px;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      color: #94a3b8;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 72px 0; border-top: 1px solid #e2e8f0; }
+    section:first-of-type { border-top: none; }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      margin-bottom: 32px;
+      color: #0f172a;
+    }
+
+    .section-intro {
+      font-size: 17px;
+      color: #475569;
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    /* ---------- What We Do ---------- */
+    .services { display: flex; flex-direction: column; gap: 28px; }
+
+    .service {
+      padding: 28px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .service:last-child { border-bottom: none; }
+
+    .service-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .service-tagline {
+      font-size: 16px;
+      color: #334155;
+      margin-bottom: 10px;
+    }
+    .service-expansion {
+      font-size: 15px;
+      color: #64748b;
+      max-width: 700px;
+    }
+
+    .compass-link {
+      display: inline-block;
+      margin-top: 32px;
+      font-size: 15px;
+      color: #475569;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 1px;
+    }
+    .compass-link:hover { color: #0f172a; border-bottom-color: #64748b; }
+
+    /* ---------- How We Work ---------- */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .framework-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .framework-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .framework-card.compass .label { color: #1e3a8a; }
+    .framework-card.wow .label { color: #0369a1; }
+
+    .framework-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .framework-card p {
+      font-size: 15px;
+      color: #475569;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .framework-card .explore {
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      align-self: flex-start;
+      padding-bottom: 2px;
+      border-bottom: 1px solid currentColor;
+    }
+    .framework-card.compass .explore { color: #1e3a8a; }
+    .framework-card.wow .explore { color: #0369a1; }
+
+    /* ---------- What We've Done ---------- */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .work-category {
+      padding: 24px 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .work-category h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #334155;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .work-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .work-item {
+      font-size: 15px;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .work-client {
+      font-weight: 500;
+    }
+
+    .work-outcome {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .work-outcome.tbd { color: #94a3b8; font-style: italic; }
+
+    /* ---------- Values ---------- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .value {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+
+    .value h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .value p {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    /* ---------- Team ---------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .member {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .member-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex; align-items: center; justify-content: center;
+      color: #64748b;
+      font-weight: 500;
+      font-size: 28px;
+    }
+
+    .member-photo.placeholder {
+      border: 1.5px dashed #cbd5e1;
+      background: transparent;
+      font-size: 12px;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .member-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .member-bio {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.65;
+    }
+
+    .member-bio.placeholder { color: #94a3b8; font-style: italic; }
+
+    /* ---------- Contact ---------- */
+    .connect-intro {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+
+    .form {
+      max-width: 680px;
+    }
+
+    .form-subhead {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .form textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 18px;
+      font-family: inherit;
+      font-size: 15px;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #fff;
+      resize: vertical;
+    }
+
+    .form textarea::placeholder { color: #94a3b8; }
+
+    .form textarea:focus {
+      outline: none;
+      border-color: #64748b;
+    }
+
+    .form-action {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .form button {
+      background: #0f172a;
+      color: #f8fafc;
+      border: none;
+      padding: 12px 24px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      padding: 56px 0 0;
+      margin-top: 40px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    .attribution {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .attribution a {
+      color: #64748b;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+    }
+    .attribution a:hover { color: #0f172a; border-bottom-color: #64748b; }
+
+    /* ---------- Main nav ---------- */
+    .site-nav {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 32px;
+    }
+    .site-nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .site-nav-brand {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      text-decoration: none;
+      letter-spacing: -0.005em;
+    }
+    .site-nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .site-nav-link {
+      font-size: 14px;
+      color: #64748b;
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav-link:hover { color: #0f172a; }
+    .site-nav-link.active {
+      color: #0f172a;
+      font-weight: 500;
+      border-bottom-color: #0f172a;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .page { padding: 48px 20px 64px; }
+      .hero { padding: 24px 0 48px; }
+      .hero-visual { height: 200px; }
+      section { padding: 48px 0; }
+
+      .framework-grid,
+      .work-grid,
+      .values-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 620px) {
+      .site-nav { padding: 12px 20px; }
+      .site-nav-inner { gap: 12px; }
+      .site-nav-links { gap: 14px; }
+      .site-nav-link, .site-nav-brand { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main">
+    <div class="site-nav-inner">
+      <a href="./home.html" class="site-nav-brand">North Star Communications</a>
+      <div class="site-nav-links">
+        <a href="./home.html" class="site-nav-link active" aria-current="page">Home</a>
+        <a href="./how-we-work.html" class="site-nav-link">The Way of Work</a>
+        <a href="./value-communications-compass.html" class="site-nav-link">The Communications Compass</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="logo-mark">NSC</div>
+      <h1>find your way to value</h1>
+      <p class="subhead">We help you close the gap between what you are and how you communicate.</p>
+      <div class="hero-visual">[ hero visual — TBD ]</div>
+    </header>
+
+    <!-- What We Do -->
+    <section id="what-we-do">
+      <div class="section-label">What we do</div>
+      <h2>Five ways we help you say it better.</h2>
+
+      <div class="services" id="services"></div>
+
+      <a class="compass-link" href="./value-communications-compass.html">See how each service applies to each audience in the Communications Compass →</a>
+    </section>
+
+    <!-- How We Work -->
+    <section id="how-we-work">
+      <div class="section-label">How we work</div>
+      <h2>Two frameworks, running in parallel.</h2>
+      <p class="section-intro">Every engagement we take on draws on the same two frameworks. The Communications Compass describes who you are talking to. The Way of Work describes how we get there together. They run in parallel, because a good message to the wrong audience is as expensive as a bad message to the right one.</p>
+
+      <div class="framework-grid">
+        <div class="framework-card compass">
+          <div class="label">The Communications Compass</div>
+          <h3>Who you are talking to.</h3>
+          <p>A map of the four groups every organization is in constant conversation with — your market, your existing customers, your employees, and your partners and vendors. Each arm of the Compass lays out how our services and values apply to that audience.</p>
+          <a class="explore" href="./value-communications-compass.html">Explore the Compass →</a>
+        </div>
+        <div class="framework-card wow">
+          <div class="label">The Way of Work</div>
+          <h3>How we get there together.</h3>
+          <p>Four continuous tracks — Discovery, Delivery, Validation, and Integration — that turn strategy into interfaces, test them against real audience behavior, and fold the learning back into practice. Engagements run as episodes rather than phases.</p>
+          <a class="explore" href="./how-we-work.html">Explore the Way of Work →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We've Done -->
+    <section id="what-weve-done">
+      <div class="section-label">What we've done</div>
+      <h2>The work speaks for itself.</h2>
+      <p class="section-intro">Proof organized by category rather than as a chronological list. Each engagement carries a short outcome where one exists publicly, or within NDA bounds where it does not.</p>
+
+      <div class="work-grid" id="work-grid"></div>
+    </section>
+
+    <!-- Values -->
+    <section id="values">
+      <div class="section-label">Our value system</div>
+      <h2>Four commitments, every engagement.</h2>
+
+      <div class="values-grid" id="values-grid"></div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+      <div class="section-label">Who's behind the work</div>
+      <h2>The people you'll actually work with.</h2>
+
+      <div class="team-grid" id="team-grid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="connect">
+      <div class="section-label">Let's connect</div>
+      <h2>What's on your mind?</h2>
+      <p class="connect-intro">Every engagement begins with discovery, then moves through our Way of Work cycle. Speed Run Packages are available for teams that need to move quickly.</p>
+
+      <form class="form" onsubmit="event.preventDefault();">
+        <p class="form-subhead">A human will read your message — and reply within a business day.</p>
+        <textarea placeholder="What's on your mind?"></textarea>
+        <div class="form-action">
+          <button type="submit" disabled>Send</button>
+          <span class="form-note">Form is a placeholder — not yet wired up.</span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p class="attribution">
+        <strong>North Star Communications</strong>
+        &nbsp;·&nbsp;
+        <a href="./value-communications-compass.html">The Communications Compass →</a>
+        &nbsp;·&nbsp;
+        <a href="./how-we-work.html">The Way of Work →</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    // ---------- Data ----------
+
+    const SERVICES = [
+      {
+        name: 'Brand Works',
+        tagline: 'Develop and refresh your brand to stay relevant and visible.',
+        expansion: 'Your brand is usually the first thing a new audience judges you on, and it has to do real work before anyone reads what you actually want to say.'
+      },
+      {
+        name: 'Community Connect',
+        tagline: 'Socialize your brand and values in the spaces your audiences already gather.',
+        expansion: 'Campaigns get attention; consistent presence earns trust, and the difference compounds over time.'
+      },
+      {
+        name: 'Attention Grab',
+        tagline: 'Get eyeballs on what matters and build clout.',
+        expansion: 'Attention is the precondition for everything else, and earning it in a noisy market takes more than volume.'
+      },
+      {
+        name: 'RevDev',
+        tagline: 'Develop and sustain healthy revenue streams.',
+        expansion: 'Communications that don\u2019t translate into revenue don\u2019t pay for themselves, so we build the messaging and materials that do.'
+      },
+      {
+        name: 'IRL',
+        tagline: 'Get people into the room where it happens.',
+        expansion: 'The relationships that move business forward are still formed in person, and the moments that matter deserve to be designed rather than left to chance.'
+      }
+    ];
+
+    const WORK = [
+      {
+        category: 'Media Development',
+        items: [
+          { client: 'BIRN / Balkan Insight', outcome: 'Rebuilt the editorial platform for 300+ journalists.' }
+        ]
+      },
+      {
+        category: 'Web 3 Product Development & Launches',
+        items: [
+          { client: 'Cere Network', outcome: null },
+          { client: 'Anchor', outcome: null },
+          { client: 'Inery', outcome: null }
+        ]
+      },
+      {
+        category: 'Content Development, PR & Socials',
+        items: [
+          { client: 'Ahrefs', outcome: null }
+        ]
+      },
+      {
+        category: 'Fortune 50 Companies',
+        items: [
+          { client: 'US Bank [under NDA]', outcome: null },
+          { client: 'Consumer Goods Company [under NDA]', outcome: null }
+        ]
+      }
+    ];
+
+    const VALUES = [
+      {
+        name: 'Human First',
+        description: 'Technology does a lot of things well, but it\u2019s never been great at replacing people. We keep the human connection at the center of everything we do and treat technology as what it should be: a tool that brings people closer together, not a substitute for real relationship.'
+      },
+      {
+        name: 'Zero Distance',
+        description: 'The best communications disappear. When the connection between you and the people you serve feels seamless, with no friction and no noise, just value flowing in both directions, that\u2019s what we\u2019re working toward. It\u2019s an ideal we\u2019ll never fully reach, and that\u2019s exactly what keeps us sharp.'
+      },
+      {
+        name: 'Sustainable Growth',
+        description: 'Fast isn\u2019t the same as healthy, and we\u2019ve seen enough organizations burn through momentum to know the difference. We help you build growth that matches your capacity, compounds over time, and feeds itself rather than depleting what got you here.'
+      },
+      {
+        name: 'Resilient Outcomes',
+        description: 'Markets shift and plans change, and the work we do together is designed to hold up when they do. We measure what\u2019s working, learn from what isn\u2019t, and fold those insights into the next stage of the work so that every outcome makes the next one stronger.'
+      }
+    ];
+
+    const TEAM = [
+      {
+        name: 'Miloš',
+        initial: 'M',
+        bio: '20+ years of experience across journalism, media, non-profit, SaaS, HR tech, and B2B. He has helped design and scale platforms, products, and campaigns that require both narrative precision and solid technical thinking, while keeping teams aligned on clear intent and measurable outcomes. Clients value Miloš for three things: a systems mindset that connects architecture, product, communications, and user/customer experience; an ability to translate complex ideas into clear, resonant language; and a mentoring style that develops people as much as it delivers projects. At North Star Communications, he anchors the work in continuous discovery, crisp positioning, and go-to-market clarity.',
+        placeholder: false
+      },
+      {
+        name: '[ second team member — TBD ]',
+        initial: '',
+        bio: 'Portrait and bio of comparable length. The bio will overlap with Miloš\u2019s where shared values and collaborative approach are concerned, and extend coverage into areas his bio does not lead with.',
+        placeholder: true
+      }
+    ];
+
+    // ---------- Render ----------
+
+    const servicesEl = document.getElementById('services');
+    SERVICES.forEach(s => {
+      const el = document.createElement('div');
+      el.className = 'service';
+      el.innerHTML = `
+        <div class="service-name">${s.name}</div>
+        <div class="service-tagline">${s.tagline}</div>
+        <div class="service-expansion">${s.expansion}</div>
+      `;
+      servicesEl.appendChild(el);
+    });
+
+    const workEl = document.getElementById('work-grid');
+    WORK.forEach(cat => {
+      const el = document.createElement('div');
+      el.className = 'work-category';
+      const items = cat.items.map(it => `
+        <li class="work-item">
+          <span class="work-client">${it.client}</span>
+          <span class="work-outcome${it.outcome ? '' : ' tbd'}">${it.outcome || '[ outcome TBD ]'}</span>
+        </li>
+      `).join('');
+      el.innerHTML = `
+        <h3>${cat.category}</h3>
+        <ul class="work-list">${items}</ul>
+      `;
+      workEl.appendChild(el);
+    });
+
+    const valuesEl = document.getElementById('values-grid');
+    VALUES.forEach(v => {
+      const el = document.createElement('div');
+      el.className = 'value';
+      el.innerHTML = `
+        <h3>${v.name}</h3>
+        <p>${v.description}</p>
+      `;
+      valuesEl.appendChild(el);
+    });
+
+    const teamEl = document.getElementById('team-grid');
+    TEAM.forEach(m => {
+      const el = document.createElement('div');
+      el.className = 'member';
+      const photoClass = m.placeholder ? 'member-photo placeholder' : 'member-photo';
+      const photoContent = m.placeholder ? '[ photo ]' : m.initial;
+      const bioClass = m.placeholder ? 'member-bio placeholder' : 'member-bio';
+      el.innerHTML = `
+        <div class="${photoClass}">${photoContent}</div>
+        <div class="member-name">${m.name}</div>
+        <div class="${bioClass}">${m.bio}</div>
+      `;
+      teamEl.appendChild(el);
+    });
+  </script>
+</body>
+</html>
